@@ -8,53 +8,56 @@ const Navbar = (props) => {
     let isLoggedIn = props.isLoggedIn;
     let setisLoggedIn = props.setisLoggedIn;
   return (
-    <div className=' flex justify-evenly'>
+    <div className=' flex justify-between  w-11/12 max-w-[1160px] py-4 mx-auto items-center'>
         <Link to="/">
-            <img src={logo} alt='Logo' width={260} height={32} loading="lazy"/>
+            <img src={logo} alt='Logo' width={160} height={32} loading="lazy"/>
         </Link>
         <nav >
-            <ul className=' flex text-2xl py-2 gap-3 '>
+            <ul className=' flex text-richblack-25 gap-x-6'>
                 <li>
-                    <a href="/">Home</a>
+                    <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <a href="/">About</a>
+                    <Link to="/">About</Link>  
                 </li>
                 <li>
-                    <a href="/">Contact</a>
+                    <Link to="/">Contact</Link>
                 </li>  
             </ul>
         </nav>
 
         {/* Login - signin - Logout - signup */}
-        <div className='text-2xl py-2 gap-3 mr-3 ml-5 flex'>
+        <div className='flex items-center gap-x-4'>
             {!isLoggedIn &&
-            <Link to={"/login"}>
-                <button >
+            <Link to="/login">
+                <button className='bg-richblack-800 text-richblack-100 border rounded-[8px] border-richblack-700 py-[8px] px-[16px]' >
                     Login
                 </button>  
             </Link>
         }
          {!isLoggedIn &&
-            <Link to={"/signup"}>
-                <button>
-                Sign Up
+            <Link to="/signup">
+                <button className='bg-richblack-800 text-richblack-100 border rounded-[8px] border-richblack-700 py-[8px] px-[12px]'>
+                Sign up
                 </button>
             </Link>
         }
          {isLoggedIn &&
-            <Link to={"/logout"}>
-                <button onClick={()=>{
+            <Link to="/">
+                <button 
+                className='bg-richblack-800 text-richblack-100 border rounded-[8px] border-richblack-700 py-[8px] px-[12px]'
+                onClick={()=>{
                     setisLoggedIn(false);
                     toast.success("Log Out")
+                    
                 }}>
                     Logout
                 </button>
             </Link>
         }
          {isLoggedIn &&
-            <Link to={"/deshboard"}>
-                <button>
+            <Link to="/deshboard">
+                <button className='bg-richblack-800 text-richblack-100 border rounded-[8px] border-richblack-700 py-[8px] px-[12px]'>
                 Deshboard
                 </button>
             </Link>
